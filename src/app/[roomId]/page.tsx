@@ -1,12 +1,13 @@
 import ChatRoom from '@/components/ChatRoom';
 
 interface PageProps {
-    params: {
+    params: Promise<{
         roomId: string;
-    };
+    }>;
 }
 
-export default function RoomPage({ params }: PageProps) {
+export default async function RoomPage({ params }: PageProps) {
+    const { roomId } = await params;
     return (
         <main className="flex min-h-screen flex-col items-center justify-center p-4 md:p-8 relative overflow-hidden bg-black">
             {/* Background Elements */}
